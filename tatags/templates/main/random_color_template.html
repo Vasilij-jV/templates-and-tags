@@ -1,0 +1,19 @@
+{% load blog_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    <link rel="stylesheet" href="{% static "css/stylesheet.css" %}">-->
+    <title>Title</title>
+</head>
+<body>
+    <div id="content">
+        {% block content %}
+            <div>
+                <div style="width: 100px; height: 100px; background-color: {% random_color %};"></div>
+            </div>
+        {% endblock %}
+    </div>
+</body>
+</html>

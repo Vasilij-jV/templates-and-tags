@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}List Pages{% endblock %}
+{% block content %}
+    <h1>{{ page.title }}</h1>
+    <p>{{ page.content }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="edit" value="edit">
+        {{ edit_form.as_p }}
+        <button type="submit">Сохранить изменения</button>
+    </form>
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="delete" value="delete">
+        <div>
+            Are you sure you want to delete this page?
+        </div>
+        <button type="submit">Удалить страницу</button>
+    </form>
+{% endblock %}>

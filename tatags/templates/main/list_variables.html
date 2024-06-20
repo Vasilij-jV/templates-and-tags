@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}My list{% endblock %}
+{% block content %}
+    {% for variable in variables %}
+        <ul>
+            <li>{{ variable.title }}</li>
+            <li>{{ variable.body }}</li>
+        </ul>
+        {% block time_date %}
+                <p>Создано: {{ variable.created_date|date:"d F Y" }}</p> <!-- "27 мая 2024" -->
+                <p>Создано: {{ variable.created_date|time:"H:i" }} AM</p> <!-- "11:10 AM" -->
+                <p>Создано: {{ variable.created_date|date:"d.m.Y" }}</p> <!-- "27.05.2024" -->
+            {% endblock %}
+    {% endfor %}
+{% endblock %}

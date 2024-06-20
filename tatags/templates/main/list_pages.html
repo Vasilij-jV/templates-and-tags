@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}List Pages{% endblock %}
+{% block content %}
+    <ul>
+        {% for page in pages %}
+            <h2>
+                <a href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+            </h2>
+        {% endfor %}
+    </ul>
+    <form action="." method="post">
+        {% csrf_token %}
+        {{ create_page.as_p }}
+        <button type="submit">Создать страницу</button>
+    </form>
+{% endblock %}
